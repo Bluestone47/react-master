@@ -1,6 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { Component, PureComponent } from 'react';
 import Person from './Person/Person';
+import Radium from 'radium';
 
+// Note: A PureComponent implements shouldComponentUpdate automatically
+// and check all the props changes
 class Persons extends PureComponent {
   // static getDerivedStateFromProps(props, state) {
   //   return  state;
@@ -39,7 +42,8 @@ class Persons extends PureComponent {
           click={() => this.props.clicked(index)}
           name={person.name}
           age={person.age}
-          changed={(event) => this.props.changed(event, person.id)} 
+          changed={(event) => this.props.changed(event, person.id)}
+          isAuth={this.props.isAuthenticated}
         />
       )
     })
